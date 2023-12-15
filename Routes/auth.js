@@ -3,7 +3,14 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user.js');
 const bcrypt = require('bcrypt');
 const router = express.Router();
-
+//health api
+router.get('/health', (req, res) => {
+    res.json({
+        serverName: 'WeekList Server',
+        currentTime: new Date(),
+        state: 'active',
+    })
+})
 // Signup
 router.post('/signup', async (req, res) => {
     try {
